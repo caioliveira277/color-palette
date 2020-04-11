@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/public/assets/css/styles.css" rel="stylesheet">
+  <link href="./public/assets/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <title>Color Palette</title>
+</head>
+
+<body>
+  <span class="info-message">
+    <p><b>Click</b> on the button <b>"Generate"</b> or <b>press</b> the <b>space bar</b> to generate new colors</p>
+  </span>
+  <span class="toast-message">
+    <h2></h2>
+    <i class="material-icons"></i>
+  </span>
+  <main>
+    <section class="colors">
+      <div class="color">
+        <h2>Hex</h2>
+        <div class="controls">
+          <button type="button" class="adjust">
+            <i class="material-icons">tune</i>
+          </button>
+          <button type="button" class="lock">
+            <i class="material-icons">lock_open</i>
+          </button>
+        </div>
+        <div class="sliders">
+          <button type="button" class="close-adjustment">X</button>
+          <span>Hue</span>
+          <input type="range" min="0" max="360" step="1" name="hue" class="hue-input" data-hue="0">
+          <span>Brightness</span>
+          <input type="range" min="0" max="1" step="0.01" name="brightness" class="bright-input" data-brightness="0">
+          <span>Saturation</span>
+          <input type="range" min="0" max="1" step="0.01" name="saturation" class="sat-input" data-saturation="0">
+        </div>
+      </div>
+      <div class="color">
+        <h2>Hex</h2>
+        <div class="controls">
+          <button type="button" class="adjust">
+            <i class="material-icons">tune</i>
+          </button>
+          <button type="button" class="lock">
+            <i class="material-icons">lock_open</i>
+          </button>
+        </div>
+        <div class="sliders">
+          <button type="button" class="close-adjustment">X</button>
+          <span>Hue</span>
+          <input type="range" min="0" max="360" step="1" name="hue" class="hue-input" data-hue="1">
+          <span>Brightness</span>
+          <input type="range" min="0" max="1" step="0.01" name="brightness" class="bright-input" data-brightness="1">
+          <span>Saturation</span>
+          <input type="range" min="0" max="1" step="0.01" name="saturation" class="sat-input" data-saturation="1">
+        </div>
+      </div>
+      <div class="color">
+        <h2>Hex</h2>
+        <div class="controls">
+          <button type="button" class="adjust">
+            <i class="material-icons">tune</i>
+          </button>
+          <button type="button" class="lock">
+            <i class="material-icons">lock_open</i>
+          </button>
+        </div>
+        <div class="sliders">
+          <button type="button" class="close-adjustment">X</button>
+          <span>Hue</span>
+          <input type="range" min="0" max="360" step="1" name="hue" class="hue-input" data-hue="2">
+          <span>Brightness</span>
+          <input type="range" min="0" max="1" step="0.01" name="brightness" class="bright-input" data-brightness="2">
+          <span>Saturation</span>
+          <input type="range" min="0" max="1" step="0.01" name="saturation" class="sat-input" data-saturation="2">
+        </div>
+      </div>
+      <div class="color">
+        <h2>Hex</h2>
+        <div class="controls">
+          <button type="button" class="adjust">
+            <i class="material-icons">tune</i>
+          </button>
+          <button type="button" class="lock">
+            <i class="material-icons">lock_open</i>
+          </button>
+        </div>
+        <div class="sliders">
+          <button type="button" class="close-adjustment">X</button>
+          <span>Hue</span>
+          <input type="range" min="0" max="360" step="1" name="hue" class="hue-input" data-hue="3">
+          <span>Brightness</span>
+          <input type="range" min="0" max="1" step="0.01" name="brightness" class="bright-input" data-brightness="3">
+          <span>Saturation</span>
+          <input type="range" min="0" max="1" step="0.01" name="saturation" class="sat-input" data-saturation="3">
+        </div>
+      </div>
+      <div class="color">
+        <h2>Hex</h2>
+        <div class="controls">
+          <button type="button" class="adjust">
+            <i class="material-icons">tune</i>
+          </button>
+          <button type="button" class="lock">
+            <i class="material-icons">lock_open</i>
+          </button>
+        </div>
+        <div class="sliders">
+          <button type="button" class="close-adjustment">X</button>
+          <span>Hue</span>
+          <input type="range" min="0" max="360" step="1" name="hue" class="hue-input" data-hue="4">
+          <span>Brightness</span>
+          <input type="range" min="0" max="1" step="0.01" name="brightness" class="bright-input" data-brightness="4">
+          <span>Saturation</span>
+          <input type="range" min="0" max="1" step="0.01" name="saturation" class="sat-input" data-saturation="4">
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="library-panel">
+        <button type="button" class="library">
+          <i class="material-icons">menu_book</i>
+        </button>
+        <p>Library</p>
+      </div>
+      <div class="generate-panel">
+        <button type="button" class="generate">
+          <i class="material-icons">autorenew</i>
+        </button>
+        <p>Generate</p>
+      </div>
+      <div class="save-panel">
+        <button type="button" class="save">
+          <i class="material-icons">save</i>
+        </button>
+        <p>Save</p>
+      </div>
+    </section>
+    <section class="copy-container">
+      <div class="copy-popup">
+        <h3>Copied to clipboard!</h3>
+        <i class="material-icons">thumb_up</i>
+      </div>
+    </section>
+    <section class="save-container">
+      <div class="save-popup">
+        <button type="button" class="close-save">&times</button>
+        <h3>Give a name to your pallete</h3>
+        <input type="text" placeholder="Name" maxlength="35" class="save-name">
+        <button type="submit" class="submit-save">Save</button>
+      </div>
+    </section>
+    <section class="library-container">
+      <div class="library-popup">
+        <button type="button" class="close-library">&times</button>
+        <h4>Pick your palette</h4>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"></script>
+  <script src="/src/js/globals.js"></script>
+  <script src="/src/js/functions.js"></script>
+  <script src="/src/js/events.js"></script>
+</body>
+
+</html>
