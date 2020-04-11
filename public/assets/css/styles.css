@@ -390,3 +390,25 @@ span.info-message::after {
   border-radius: 10px;
   background: #00000085;
 }
+
+
+figure.git-hub-link {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 8;
+  width: 80px;
+  height: 80px;
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
+  background: #2e2e2e85;
+  transition: transform 200ms ease;
+  backdrop-filter: blur(3px);
+}
+figure.git-hub-link:hover {
+  transform: scale(1.2);
+}
+figure.git-hub-link > a > img {
+  width: 64px;
+  transform: rotate(45deg);
+  margin: 18px;
+}
