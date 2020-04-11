@@ -1,3 +1,4 @@
+'use strict';
 /* Globals */
 const colorDivs = document.querySelectorAll("div.color");
 const generateBtn = document.querySelector("button.generate");

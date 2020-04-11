@@ -1,3 +1,4 @@
+'use strict';
 /* Events */
 sliders.forEach((slider) => {
   slider.addEventListener("input", HslControls);

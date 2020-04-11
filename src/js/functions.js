@@ -1,3 +1,4 @@
+"use strict";
 /* functions */
 function GerenateHex() {
   return chroma.random();
@@ -48,7 +49,6 @@ function RandomColors() {
     const hexElement = div.children[0];
     const randomColor = GerenateHex();
     const icons = div.querySelectorAll("div.controls button");
-
     if (div.classList.contains("locked")) {
       return initialColors.push(hexElement.innerText);
     }
@@ -57,8 +57,10 @@ function RandomColors() {
     initialColors.push(randomColor.hex());
 
     CheckTextContrast(randomColor, hexElement, randomColor);
-    for (icon of icons) {
-      CheckTextContrast(randomColor, icon);
+    for (const key in icons) {
+      if (icons.hasOwnProperty(key)) {
+        CheckTextContrast(randomColor, icons[key]);
+      }
     }
 
     const color = chroma(randomColor);
@@ -104,8 +106,10 @@ function updateText(index) {
 
   CheckTextContrast(color, textElement, color);
 
-  for (icon of icons) {
-    CheckTextContrast(color, icon);
+  for (const key in icons) {
+    if (icons.hasOwnProperty(key)) {
+      CheckTextContrast(color, icons[key]);
+    }
   }
 }
 
@@ -211,7 +215,7 @@ function RenderElementLibrary(palettesObj) {
   palette.classList.add("custom-palette");
   preview.classList.add("small-preview");
   title.innerText = palettesObj.name;
-  
+
   palettesObj.colors.forEach((smallColor) => {
     const smallDiv = document.createElement("div");
     smallDiv.style.backgroundColor = smallColor;
@@ -260,10 +264,10 @@ function StorePalette(palettesObj) {
   RenderElementLibrary(palettesObj);
   return ToastMessage("success", "Saved successfully!");
 }
-function GetPalettes(){
+function GetPalettes() {
   let palettesObj = [];
-  
-  if(localStorage.getItem("palettes") !== null){
+
+  if (localStorage.getItem("palettes") !== null) {
     palettesObj = JSON.parse(localStorage.getItem("palettes"));
   }
 
