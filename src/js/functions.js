@@ -199,8 +199,7 @@ function SavePalette() {
     colors.push(hex.innerText);
   });
 
-  const paletteNr = savedPalettes.length;
-  const paletteObj = { name, colors, nr: paletteNr };
+  const paletteObj = { name, colors };
   savedPalettes.push(paletteObj);
 
   saveInput.value = "";
@@ -211,6 +210,10 @@ function RenderElementLibrary(palettesObj) {
   const palette = document.createElement("div");
   const title = document.createElement("h4");
   const preview = document.createElement("div");
+  const removeBtn = document.createElement("button");
+
+  removeBtn.classList.add("remove-palette");
+  removeBtn.innerText = "X";
 
   palette.classList.add("custom-palette");
   preview.classList.add("small-preview");
@@ -224,16 +227,16 @@ function RenderElementLibrary(palettesObj) {
 
   const paletteBtn = document.createElement("button");
   paletteBtn.classList.add("pick-palette-btn");
-  paletteBtn.classList.add(palettesObj.nr);
   paletteBtn.innerText = "Select";
 
+  palette.appendChild(removeBtn);
   palette.appendChild(title);
   palette.appendChild(preview);
   palette.appendChild(paletteBtn);
 
-  libraryContainer.children[0].appendChild(palette);
+  paletteList.appendChild(palette);
 
-  paletteBtn.addEventListener("click", ({ target }) => {
+  paletteBtn.addEventListener("click", () => {
     closeLibrary.dispatchEvent(new Event("click"));
 
     initialColors = [];
@@ -248,6 +251,13 @@ function RenderElementLibrary(palettesObj) {
     sliders.forEach((slider) => {
       slider.dispatchEvent(new Event("input"));
     });
+  });
+  removeBtn.addEventListener("click", ({ target }) => {
+    const parentTarget = target.parentElement;
+    const listPalettes = parentTarget.parentElement.children;
+    let index = [...listPalettes].indexOf(parentTarget);
+    RemovePalette(index, parentTarget);
+    parentTarget.classList.add("removed");
   });
 }
 
@@ -264,6 +274,24 @@ function StorePalette(palettesObj) {
   RenderElementLibrary(palettesObj);
   return ToastMessage("success", "Saved successfully!");
 }
+function RemovePalette(index, element) {
+  let localPalettes = [];
+
+  if (localStorage.getItem("palettes") !== null) {
+    localPalettes = JSON.parse(localStorage.getItem("palettes"));
+    delete localPalettes[index];
+    let newPalettes = [];
+
+    localPalettes.forEach((obj) => {
+      newPalettes.push(obj);
+    });
+
+    localStorage.setItem("palettes", JSON.stringify(newPalettes));
+    setTimeout(() => {
+      element.remove();
+    }, 600);
+  }
+}
 function GetPalettes() {
   let palettesObj = [];
 
@@ -275,6 +303,7 @@ function GetPalettes() {
     RenderElementLibrary(palette);
   });
 }
+
 
 /* Startup */
 RandomColors();

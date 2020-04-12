@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /* Events */
 sliders.forEach((slider) => {
   slider.addEventListener("input", HslControls);
@@ -18,8 +18,7 @@ copyPopup.firstElementChild.addEventListener("animationend", (event) => {
     return event.target.closest("section").classList.remove("active");
   }
   setTimeout(() => {
-    event.target.style.animation =
-      "fadeOut 500ms ease-out forwards";
+    event.target.style.animation = "fadeOut 500ms ease-out forwards";
   }, 700);
 });
 adjustButton.forEach((button, index) => {
@@ -49,8 +48,8 @@ closeSave.addEventListener("click", () => {
 });
 saveInput.addEventListener("keyup", (event) => {
   event.stopPropagation();
-  let trigger = event.which || event.keyCode; 
-  if(trigger === 13){
+  let trigger = event.which || event.keyCode;
+  if (trigger === 13) {
     SavePalette();
   }
 });
@@ -87,14 +86,17 @@ libraryContainer.addEventListener("click", () => {
   closeLibrary.dispatchEvent(new Event("click"));
 });
 document.addEventListener("keyup", (event) => {
-  let trigger = event.which || event.keyCode; 
-  if(trigger === 32){
+  let trigger = event.which || event.keyCode;
+  if (trigger === 32) {
     RandomColors();
   }
 });
-infoMessage.addEventListener("animationend", ({target}) => {
+
+infoMessage.addEventListener("animationend", ({ target }) => {
   target.style.opacity = "0";
   setTimeout(() => {
     target.remove();
   }, 500);
-})
+});
+
+
