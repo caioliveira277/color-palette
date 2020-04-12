@@ -22,19 +22,51 @@ path {
 }
 .colors {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   color: #c5c5c5;
   box-shadow: 0px 5px 15px #00000085;
+  height: 80vh;
 }
 .color {
-  height: 80vh;
   display: flex;
+  height: 100%;
   flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 930px) {
+  .colors {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 630px) {
+  figure.git-hub-link{
+    display: none;
+  }
+  button.pick-palette-btn{
+    padding: .4rem !important;
+  }
+}
+@media (max-width: 330px) {
+  .color > h2{
+    font-size: 1.2rem !important;
+  }
+  input[type=range]{
+    width: 75% !important;
+  }
+  .sliders > span {
+    font-size: .8rem;
+  }
+  .panel > div button {
+    margin: .6rem;
+  }
+  .adjust, .lock{
+    margin: 1rem 0rem !important;
+  }
+  
 }
 .color h2 {
   font-size: 2rem;
@@ -133,6 +165,7 @@ input[type="range"] {
   position: relative;
   border-radius: 1rem;
   cursor: pointer;
+  width: 100%;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -174,6 +207,9 @@ section.library-container {
   pointer-events: none;
   opacity: 0;
 }
+.copy-popup{
+  min-width: 20%;
+}
 .copy-popup,
 .save-popup,
 .library-popup {
@@ -182,12 +218,15 @@ section.library-container {
   justify-content: center;
   align-items: center;
   border-radius: 1.5rem;
-  min-width: 20%;
   min-height: 25vh;
   transition: all 500ms ease;
   padding: 1rem;
   opacity: 0;
   position: relative;
+}
+.save-popup{
+  max-width: 400px;
+  width: 90%;
 }
 .save-popup,
 .library-popup {
@@ -203,7 +242,7 @@ section.library-container {
   width: 0%;
   height: 3px;
   border: 2rem;
-  background: tomato;
+  background: #f85f44;
   animation: progress 800ms 400ms linear forwards;
 }
 .copy-popup i {
@@ -220,6 +259,7 @@ input.save-name {
   padding: 0.5rem;
   border-radius: 10px;
   border: 1px solid #dddddd;
+  width: 90%;
 }
 input.save-name:-ms-input-placeholder {
   color: #dddddd;
@@ -233,7 +273,7 @@ input.save-name::placeholder {
   height: 2rem !important;
   font-size: 1rem;
 }
-.library-popup{
+.library-popup {
   min-height: 40%;
   max-width: 600px;
   width: 90%;
@@ -243,14 +283,15 @@ input.save-name::placeholder {
   max-height: 50vh;
   scrollbar-width: thin;
 }
-.custom-palette{
+.custom-palette {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 2rem;
+  padding: .6rem;
+  margin-top: 1rem;
 }
-.small-preview{
+.small-preview {
   display: flex;
   flex: 1;
 }
@@ -261,7 +302,7 @@ input.save-name::placeholder {
   height: 5rem;
   flex: 1;
 }
-.pick-palette-btn{
+.pick-palette-btn {
   height: 5rem;
   border: none;
   padding: 1rem;
@@ -308,7 +349,7 @@ span.toast-message.active::after {
   width: 0%;
   height: 3px;
   border: 2rem;
-  background: tomato;
+  background: #f85f44;
   animation: progress 1700ms 400ms linear forwards;
 }
 span.toast-message.active {
@@ -346,10 +387,29 @@ span.info-message::after {
   width: 0%;
   height: 3px;
   border: 2rem;
-  background: tomato;
+  background: #f85f44;
   animation: progressFull 5s 400ms linear forwards;
 }
-
+#palettes-list {
+  width: 100%;
+}
+button.remove-palette {
+  border: none;
+  color: #ffffff;
+  background: #f85f44;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  margin-right: 0.6rem;
+  cursor: pointer;
+}
+button.remove-palette:hover {
+  background: #bb4833;
+}
+.removed {
+  transform: translateY(8rem) rotate(20deg);
+  opacity: 0;
+  transition: all 500ms cubic-bezier(0, -0.04, 0.15, 0.66);
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -390,7 +450,6 @@ span.info-message::after {
   border-radius: 10px;
   background: #00000085;
 }
-
 
 figure.git-hub-link {
   position: fixed;
