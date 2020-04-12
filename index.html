@@ -9,8 +9,8 @@
   <meta name="description" content="Color palette The java script creative course project 3" />
   <link href="https://fonts.googleapis.com/css?family=Muli:400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="./public/assets/css/bundle.css" rel="stylesheet">
   <link href="./public/assets/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link href="./public/assets/css/bundle.css" rel="stylesheet">
   <title>Color Palette</title>
 </head>
 
@@ -130,6 +130,26 @@
           <input type="range" min="0" max="1" step="0.01" name="saturation" class="sat-input" data-saturation="4">
         </div>
       </div>
+      <div class="color">
+        <h2>Hex</h2>
+        <div class="controls">
+          <button type="button" class="adjust">
+            <i class="material-icons">tune</i>
+          </button>
+          <button type="button" class="lock">
+            <i class="material-icons">lock_open</i>
+          </button>
+        </div>
+        <div class="sliders">
+          <button type="button" class="close-adjustment">X</button>
+          <span>Hue</span>
+          <input type="range" min="0" max="360" step="1" name="hue" class="hue-input" data-hue="5">
+          <span>Brightness</span>
+          <input type="range" min="0" max="1" step="0.01" name="brightness" class="bright-input" data-brightness="5">
+          <span>Saturation</span>
+          <input type="range" min="0" max="1" step="0.01" name="saturation" class="sat-input" data-saturation="5">
+        </div>
+      </div>
     </section>
     <section class="panel">
       <div class="library-panel">
@@ -159,7 +179,7 @@
     </section>
     <section class="save-container">
       <div class="save-popup">
-        <button type="button" class="close-save">&times</button>
+        <button type="button" class="close-save">X</button>
         <h3>Give a name to your pallete</h3>
         <input type="text" placeholder="Name" maxlength="35" class="save-name">
         <button type="submit" class="submit-save">Save</button>
@@ -167,8 +187,11 @@
     </section>
     <section class="library-container">
       <div class="library-popup">
-        <button type="button" class="close-library">&times</button>
+        <button type="button" class="close-library">X</button>
         <h4>Pick your palette</h4>
+        <div id="palettes-list">
+
+        </div>
       </div>
     </section>
   </main>
